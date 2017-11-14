@@ -1,9 +1,12 @@
 <!DOCTYPE HTML>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="utf-8">
 <title>database</title>
+
 <style>
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
 
@@ -168,7 +171,7 @@ tr{width: 100%;}
 </style>
 </head>
 
-<body>
+
 
 <body>
 
@@ -181,8 +184,13 @@ tr{width: 100%;}
 <tbody class="table-hover">
 <% for(var i=0; i < b.data.length; i++) { %>
 
-<tr style="display:inline;">
-<td  style="width:700px;height:80px;"><strong style="margin-left:20px;margin-top:30px;;"><%=b.data[i].name%></strong><a class="cal" style="float:right;height:100%;z-index:1;width:25%;background-color:skyblue;margin:0;padding:0;text-decoration:none;color:white;font-weight:bold;" href="tel:<%=b.data[i].p%>">Call now</a></td>
+<tr  style="display:inline;">
+<td  class="row" id="<%=i%>" style="width:700px;height:80px;"><strong style="margin-left:20px;margin-top:30px;">
+  <%=b.data[i].name%></strong><p style="display:none;" class="name"><%=b.data[i].name%></p>
+<p style="display:none;" class="email"><%=b.data[i].email%></p>
+<p style="display:none;" class="p"><%=b.data[i].p%></p>
+<p style="display:none;" class="msg"><%=b.data[i].msg%></p>
+  <a class="cal" style="float:right;height:100%;z-index:1;width:25%;background-color:skyblue;margin:0;padding:0;text-decoration:none;color:white;font-weight:bold;" href="tel:<%=b.data[i].p%>">Call now</a></td>
 
 
 
@@ -193,8 +201,77 @@ tr{width: 100%;}
 </tbody>
 </table>
 
+<script>
+$(document).ready(function functionName() {
 
-		</div>
-	</div>
+  var name=$(this).children(".name").html();
+  var email=$(this).children(".email").html();
+  var p=$(this).children(".p").html();
+  var msg=$(this).children(".msg").html();
+$(".row").click(function functionName() {
+var name=$(this).children(".name").html();
+var email=$(this).children(".email").html();
+var p=$(this).children(".p").html();
+var msg=$(this).children(".msg").html();
+
+console.log(name);
+console.log(email);
+console.log(p);
+console.log(msg);
+$(".o").html(name);
+$(".t").html(email);
+$(".th").html(p);
+$(".f").html(msg);
+$(".out").css("display", "block");
+$(".table-fill").hide();
+});
+
+});
+</script>
+<div class="out" style="display:none;">
+
+  <table style="margin-top:10%;">
+  <thead>
+  <tr>
+  <th class="text-left">DETAILS</th>
+  </tr>
+  </thead>
+  <tbody class="table-hover">
+
+
+  <tr  style="display:block;">
+  <td   style="width:700px;height:80px;display:block;">
+          <strong class="o"style="margin-left:20px;margin-top:30px;;">
+</strong>
+
+      </td>
+    </tr><tr><td   style="width:700px;height:80px;display:block;">
+              <strong class="t"style="margin-left:20px;margin-top:30px;;">
+    </strong>
+
+          </td>
+    </tr><tr>      <td   style="width:700px;height:80px;display:block;">
+                  <strong class="th"style="margin-left:20px;margin-top:30px;;">
+        </strong>
+
+      </td>
+</tr>
+      <tr>
+              <td   style="width:700px;height:80px;display:block;">
+                      <strong class="f"style="margin-left:20px;margin-top:30px;;">
+            </strong>
+
+          </td></tr>
+  </tr>
+
+
+
+
+  </tbody>
+  </table>
+
+
+</div>
 </body>
+
 </html>
