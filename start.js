@@ -69,6 +69,9 @@ server.get('/con',function(req,res){
 
 });
 server.get('/',function(req,res){
+  var ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
+  console.log(ip);
+
   var walker  = walk.walk('./assets/slide/img', { followLinks: false });
 
   walker.on('file', function(root, stat, next) {
